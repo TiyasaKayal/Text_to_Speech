@@ -11,12 +11,8 @@ const pitch = document.querySelector('#pitch');
 const pitchValue = document.querySelector('#pitch-value');
 const body = document.querySelector('body');
 
-//Browser identifier
-// Firefox 1.0+
-// var isFirefox = typeof InstallTrigger !== 'undefined';
-
 // Chrome 1+
-// var isChrome = !!window.chrome && !!window.chrome.webstore;
+var isChrome = !!window.chrome && !!window.chrome.webstore;
 
 // Init voices array
 let voices = [];
@@ -48,11 +44,11 @@ if (synth.onvoiceschanged !== undefined) {
 // if (isFirefox) {
 //     getVoices();
 // }
-// if (isChrome) {
-//     if (synth.onvoiceschanged !== undefined) {
-//         synth.onvoiceschanged = getVoices;
-//     }
-// }
+if (isChrome) {
+    if (synth.onvoiceschanged !== undefined) {
+        synth.onvoiceschanged = getVoices;
+    }
+}
 
 // Speak
 const speak = () => {
